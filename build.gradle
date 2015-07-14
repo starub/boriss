@@ -1,3 +1,8 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
 buildscript {
     repositories {
         jcenter()
@@ -7,16 +12,6 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
     }
-}
-
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot'
-
-jar {
-    baseName = 'boriss'
-    version =  '0.0.1'
 }
 
 repositories {
@@ -30,4 +25,13 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
-task stage(dependsOn: 'jar')
+springBoot {
+    mainClass = 'com.boriss.application.Application'
+}
+
+jar {
+    baseName = 'boriss'
+    version =  '0.0.1'
+}
+
+task stage(dependsOn: ['assemble'])
