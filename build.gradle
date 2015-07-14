@@ -29,5 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.11'
 }
 
-task stage(dependsOn: ['clean', 'build', 'installApp'])
+task stage(dependsOn: ['clean', 'build'])
 
