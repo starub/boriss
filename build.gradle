@@ -32,13 +32,12 @@ dependencies {
 	compile 'org.webjars.bower:angular-aria:1.4.0'    
     
     compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    
+        
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 springBoot {
-    mainClass = 'com.boriss.application.Application'
+    mainClass = 'com.boriss.Application'
 }
 
 jar {
