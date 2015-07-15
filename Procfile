@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/*.jar 
+web: java $JAVA_OPTS -Dserver.port=$PORT -Dmongolab.uri=$MONGOLAB_URI -Dstormpath.api.key.id=$STORMPATH_API_KEY_ID -Dstormpath.api.key.secret=$STORMPATH_API_KEY_SECRET -Dstormpath.url=$STORMPATH_URL -jar build/libs/*.jar 
