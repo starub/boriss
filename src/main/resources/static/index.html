@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html ng-app="IndexApplication">
+<html>
 
 <head>
 <title>StartWithNo</title>
@@ -12,9 +12,11 @@
 
 </head>
 
-<body>
-	<div ng-controller="IndexController">
-		<strong>{{::welcomeMessage}}</strong>
+<body ng-app="IndexApplication" ng-cloak>
+	<div ng-controller="IndexController" layout="row" flex>
+		<span flex="80">{{::toolbarTitle}}</span>
+		<md-button flex="10" ng-click="login($event)">Login</md-button>
+		<md-button flex="10" ng-click="register($event)">Register</md-button>
 	</div>
 
 	<script src="/webjars/jquery/2.1.4/jquery.min.js"></script>
