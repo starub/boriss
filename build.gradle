@@ -32,6 +32,8 @@ dependencies {
 	compile 'org.webjars.bower:angular-aria:1.4.0'    
     
     compile 'org.springframework.boot:spring-boot-starter-web'
+
+    compile 'org.kurento:kurento-client:5.1.0'    
         
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
