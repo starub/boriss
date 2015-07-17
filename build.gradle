@@ -32,6 +32,7 @@ dependencies {
 	compile 'org.webjars.bower:angular-aria:1.4.0'    
     
     compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework:spring-websocket'
 
     compile 'org.kurento:kurento-client:5.1.0'    
         
