@@ -34,8 +34,14 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework:spring-websocket'
 
-    compile 'org.kurento:kurento-client:5.1.0'    
-        
+    compile 'org.kurento:kurento-client:5.1.0'
+
+    compile 'com.stormpath.sdk:stormpath-sdk-api:1.0.RC4.5'
+    compile 'com.stormpath.sdk:stormpath-sdk-httpclient:1.0.RC4.5'
+    compile 'com.stormpath.sdk:stormpath-sdk-oauth:1.0.RC4.5'
+
+    compile 'com.google.guava:guava:18.0'
+
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
