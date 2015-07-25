@@ -33,8 +33,6 @@ dependencies {
     
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework:spring-websocket'
-    compile 'org.springframework.security:spring-security-core'
-
 
     compile 'org.kurento:kurento-client:6.0.0'
 
