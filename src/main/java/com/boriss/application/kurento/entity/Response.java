@@ -31,4 +31,10 @@ public class Response {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Response [command=%s, status=%s, message=%s]", command, status, message);
+	}
+
 }

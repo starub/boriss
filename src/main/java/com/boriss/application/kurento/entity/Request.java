@@ -11,4 +11,11 @@ public class Request {
 	public void setCommand(String command) {
 		this.command = command;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("Request [command=%s]", command);
+	}
+	
+	
 }

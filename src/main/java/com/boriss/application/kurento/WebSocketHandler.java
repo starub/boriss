@@ -20,7 +20,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-		log.debug("Received message : {}", message.toString());
+		log.debug("Received WebSocket message : {}", message.toString());
 		commandHandler.handle(session, message);
 	}
 

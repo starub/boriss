@@ -43,6 +43,7 @@ dependencies {
 
     compile 'com.google.guava:guava:18.0'
     compile 'com.google.code.gson:gson:2.3.1'
+	compile 'org.apache.commons:commons-lang3:3.0'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

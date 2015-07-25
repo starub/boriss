@@ -22,4 +22,9 @@ public class PingCommand implements Command {
 		return response;
 	}
 
+	@Override
+	public String toString() {
+		return CommandType.PING.name();
+	}
+
 }
