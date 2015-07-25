@@ -6,18 +6,21 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 
-import com.boriss.application.KurentoWebSocketHandler;
+import com.boriss.application.kurento.WebSocketHandler;
 
 @Configuration
 @EnableWebSocket
 public class WebSocketConfiguration implements WebSocketConfigurer {
 
 	@Autowired
+	WebSocketHandler webSocketHandler;
+
+	@Autowired
 	ApplicationConfiguration applicationConfiguration;
 
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(new KurentoWebSocketHandler(), applicationConfiguration.getWebSocketEndpoint());
+		registry.addHandler(webSocketHandler, applicationConfiguration.getWebSocketEndpoint());
 	}
 
 }

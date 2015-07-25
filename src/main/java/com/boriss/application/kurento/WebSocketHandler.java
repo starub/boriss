@@ -1,6 +1,5 @@
-package com.boriss.application;
+package com.boriss.application.kurento;
 
-import org.kurento.client.KurentoClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,17 +8,20 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-@Component
-public class KurentoWebSocketHandler extends TextWebSocketHandler {
+import com.boriss.application.kurento.command.CommandHandler;
 
-	private Logger log = LoggerFactory.getLogger(KurentoWebSocketHandler.class);
+@Component
+public class WebSocketHandler extends TextWebSocketHandler {
+
+	private Logger log = LoggerFactory.getLogger(WebSocketHandler.class);
 
 	@Autowired
-	KurentoClient kurentoClient;
+	CommandHandler commandHandler;
 
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
 		log.debug("Received message : {}", message.toString());
+		commandHandler.handle(session, message);
 	}
 
 }

@@ -22,10 +22,11 @@ repositories {
 
 dependencies {
 
-	compile 'org.webjars:jquery:2.1.4'
+	compile 'org.webjars.bower:jquery:2.1.4'	
 	compile 'org.webjars.bower:kurento-utils:5.1.0'
 	compile 'org.webjars.bower:webrtc-adapter.js:0.0.1'
 	
+	compile 'org.webjars.bower:ui-router:0.2.9'
 	compile 'org.webjars.bower:angular-material:0.10.0'
 	compile 'org.webjars.bower:angularjs:1.4.2'
 	compile 'org.webjars.bower:angular-animate:1.4.2'
