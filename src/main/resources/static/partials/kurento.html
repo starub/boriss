@@ -1,36 +1,24 @@
-<!DOCTYPE html>
-
-<html>
-<head>
-<title>Kurento test page</title>
 <script>
-	
 	$.get('/').success(function(data) {
 		console.log(data);
 	})
-	
+
 	var ws = new WebSocket('ws://' + location.host + '/ws/kurento');
 
 	ws.onopen = function() {
-		console.log('connection opened!');		
+		console.log('connection opened!');
 
-		var pingCmd = { command : 'PING'};
-		
+		var pingCmd = {
+			command : 'PING'
+		};
+
 		ws.send(JSON.stringify(pingCmd));
 	};
 
 	ws.onmessage = function(event) {
 		console.log(event);
 	};
-	
 </script>
-
-</head>
-
-<body>
-	<div>
-		<span>kurento test</span>
-	</div>
-</body>
-
-</html>
+<div>
+	<span>kurento test</span>
+</div>
