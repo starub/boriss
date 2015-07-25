@@ -27,7 +27,7 @@ public class SDPOfferCommand implements Command {
 	public Response execute(Request request) throws Exception {
 
 		MediaPipeline pipeline = kurentoClient.createMediaPipeline();
-		WebRtcEndpoint webRtcEndpoint = new WebRtcEndpoint.Builder(pipeline).build();
+		final WebRtcEndpoint webRtcEndpoint = new WebRtcEndpoint.Builder(pipeline).build();
 
 		webRtcEndpoint.connect(webRtcEndpoint);
 
