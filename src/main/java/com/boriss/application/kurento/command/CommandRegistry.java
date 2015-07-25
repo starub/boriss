@@ -1,7 +1,5 @@
 package com.boriss.application.kurento.command;
 
-import static com.boriss.application.kurento.command.CommandRegistry.Actions.PING;
-
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -9,6 +7,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.boriss.application.kurento.entity.CommandType;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
 
@@ -18,22 +17,16 @@ public class CommandRegistry {
 	@Autowired
 	PingCommand pingCommand;
 
-	private Map<Actions, Command> commands;
+	private Map<CommandType, Command> commands;
 
 	@PostConstruct
 	@VisibleForTesting
 	void init() {
-		commands = ImmutableMap.<Actions, Command> builder()
-
-		.put(PING, pingCommand).build();
+		commands = ImmutableMap.<CommandType, Command> builder().put(CommandType.PING, pingCommand).build();
 	}
 
 	Command get(String action) {
-		return commands.get(Actions.valueOf(action));
-	}
-
-	enum Actions {
-		PING
+		return commands.get(CommandType.valueOf(action));
 	}
 
 }

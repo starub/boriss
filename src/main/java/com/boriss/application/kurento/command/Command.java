@@ -1,10 +1,10 @@
 package com.boriss.application.kurento.command;
 
-import org.springframework.web.socket.TextMessage;
-import org.springframework.web.socket.WebSocketSession;
+import com.boriss.application.kurento.entity.Request;
+import com.boriss.application.kurento.entity.Response;
 
 public interface Command {
 
-	void execute(WebSocketSession session, TextMessage message) throws Exception;
+	Response execute(Request request) throws Exception;
 
 }

@@ -12,8 +12,11 @@
 	var ws = new WebSocket('ws://' + location.host + '/ws/kurento');
 
 	ws.onopen = function() {
-		console.log('connection opened!');
-		ws.send('PING');
+		console.log('connection opened!');		
+
+		var pingCmd = { command : 'PING'};
+		
+		ws.send(JSON.stringify(pingCmd));
 	};
 
 	ws.onmessage = function(event) {
