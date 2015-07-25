@@ -36,7 +36,7 @@ dependencies {
     compile 'org.springframework.security:spring-security-core'
 
 
-    compile 'org.kurento:kurento-client:5.1.0'
+    compile 'org.kurento:kurento-client:6.0.0'
 
     compile 'com.stormpath.sdk:stormpath-sdk-api:1.0.RC4.5'
     compile 'com.stormpath.sdk:stormpath-sdk-httpclient:1.0.RC4.5'

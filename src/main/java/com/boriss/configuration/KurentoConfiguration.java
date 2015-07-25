@@ -14,40 +14,45 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties("kurento")
 public class KurentoConfiguration {
 
-    private Logger log = LoggerFactory.getLogger(KurentoConfiguration.class);
+	private Logger log = LoggerFactory.getLogger(KurentoConfiguration.class);
 
-    private String websocketUrl;
+	private String websocketUrl;
 
-    @Bean
-    KurentoClient kurentoClient() throws IOException {
+	@Bean
+	KurentoClient kurentoClient() throws IOException {
 
-        KurentoClient client = KurentoClient.create(getWebsocketUrl(), new KurentoConnectionListener() {
+		KurentoClient client = KurentoClient.create(getWebsocketUrl(), new KurentoConnectionListener() {
 
-            @Override
-            public void disconnected() {
-                log.debug("Kurento client disconnected.");
-            }
+			@Override
+			public void disconnected() {
+				log.debug("Kurento client disconnected.");
+			}
 
-            @Override
-            public void connectionTimeout() {
-                log.debug("Kurento client connection timeout.");
-            }
+			@Override
+			public void connected() {
+				log.debug("Kurento client connected.");
+			}
 
-            @Override
-            public void connected() {
-                log.debug("Kurento client connected.");
-            }
-        });
+			@Override
+			public void connectionFailed() {
+				log.debug("Kurento client connection failed.");
+			}
 
-        return client;
-    }
+			@Override
+			public void reconnected(boolean sameServer) {
+				log.debug("Kurento client reconnected, same server : {}", sameServer);
+			}
+		});
 
-    public String getWebsocketUrl() {
-        return websocketUrl;
-    }
+		return client;
+	}
 
-    public void setWebsocketUrl(String websocketUrl) {
-        this.websocketUrl = websocketUrl;
-    }
+	public String getWebsocketUrl() {
+		return websocketUrl;
+	}
+
+	public void setWebsocketUrl(String websocketUrl) {
+		this.websocketUrl = websocketUrl;
+	}
 
 }
