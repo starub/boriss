@@ -1,24 +1,58 @@
+<div layout="row" layout-align="center center" flex>
+	<div flex="50">
+		<video id="videoInput" autoplay></video>
+	</div>
+	<div flex="50">
+		<video id="videoOutput" autoplay></video>
+	</div>
+</div>
 <script>
-	$.get('/').success(function(data) {
-		console.log(data);
-	})
-
 	var ws = new WebSocket('ws://' + location.host + '/ws/kurento');
 
+	var webRtcPeer;
+
 	ws.onopen = function() {
-		console.log('connection opened!');
+		navigator.getUserMedia({
+			audio : true,
+			video : true
+		}, function(stream) {
 
-		var pingCmd = {
-			command : 'PING'
-		};
+			var videoInput = document.getElementById('videoInput');
+			var videoOutput = document.getElementById('videoOutput');
 
-		ws.send(JSON.stringify(pingCmd));
+			webRtcPeer = new kurentoUtils.WebRtcPeer("sendRecv", videoInput,
+					videoOutput, onSdpOffer, onError, stream);
+
+			webRtcPeer.start();
+
+		}, onError);
+
 	};
 
 	ws.onmessage = function(event) {
-		console.log(event);
+		var response = JSON.parse(event.data);
+
+		if (response.command == 'SDP_OFFER') {
+			webRtcPeer.processSdpAnswer(response.data, onSdpAnswer);
+		}
 	};
+
+	function onSdpOffer(sdpOffer) {
+
+		var sdpOfferCommand = {
+			'command' : 'SDP_OFFER',
+			'data' : sdpOffer
+		};
+
+		ws.send(JSON.stringify(sdpOfferCommand));
+	};
+
+	function onSdpAnswer() {
+		console.log('sdp answer');
+	}
+
+	function onError(error) {
+		console.log(error);
+	}
 </script>
-<div>
-	<span>kurento test</span>
-</div>
+

@@ -17,7 +17,7 @@ public class PingCommand implements Command {
 
 		response.setCommand(CommandType.PING);
 		response.setStatus(Status.OK);
-		response.setMessage("PONG!");
+		response.setData("PONG!");
 
 		return response;
 	}

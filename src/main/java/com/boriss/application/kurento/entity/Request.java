@@ -4,6 +4,8 @@ public class Request {
 
 	private String command;
 
+	private String data;
+
 	public String getCommand() {
 		return command;
 	}
@@ -12,10 +14,17 @@ public class Request {
 		this.command = command;
 	}
 
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("Request [command=%s]", command);
+		return String.format("Request [command=%s, data=%s]", command, data);
 	}
-	
-	
+
 }

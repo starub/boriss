@@ -6,7 +6,7 @@ public class Response {
 
 	private Status status;
 
-	private String message;
+	private String data;
 
 	public CommandType getCommand() {
 		return command;
@@ -24,17 +24,17 @@ public class Response {
 		this.status = status;
 	}
 
-	public String getMessage() {
-		return message;
+	public String getData() {
+		return data;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setData(String data) {
+		this.data = data;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Response [command=%s, status=%s, message=%s]", command, status, message);
+		return String.format("Response [command=%s, status=%s, data=%s]", command, status, data);
 	}
 
 }

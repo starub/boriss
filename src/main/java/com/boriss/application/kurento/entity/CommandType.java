@@ -1,5 +1,5 @@
 package com.boriss.application.kurento.entity;
 
 public enum CommandType {
-	PING, UNKNOWN
+	SDP_OFFER, PING, UNKNOWN
 }

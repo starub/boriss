@@ -8,25 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.boriss.application.kurento.entity.CommandType;
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.ImmutableMap;
 
 @Component
 public class CommandRegistry {
 
 	@Autowired
-	PingCommand pingCommand;
+	private PingCommand pingCommand;
+	
+	@Autowired
+	private SDPOfferCommand sdpOfferCommand;
 
 	private Map<CommandType, Command> commands;
 
-	@PostConstruct
-	@VisibleForTesting
-	void init() {
-		commands = ImmutableMap.<CommandType, Command> builder().put(CommandType.PING, pingCommand).build();
+	public Command get(String action) {
+		return commands.get(CommandType.valueOf(action));
 	}
 
-	Command get(String action) {
-		return commands.get(CommandType.valueOf(action));
+	@PostConstruct
+	private void init() {
+		commands = ImmutableMap.<CommandType, Command> builder()
+				.put(CommandType.PING, pingCommand)
+				.put(CommandType.SDP_OFFER,sdpOfferCommand)
+				.build();
 	}
 
 }

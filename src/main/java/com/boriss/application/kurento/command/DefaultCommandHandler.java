@@ -52,7 +52,7 @@ public class DefaultCommandHandler implements CommandHandler {
 
 			response.setStatus(Status.FAIL);
 			response.setCommand(CommandType.UNKNOWN);
-			response.setMessage(ExceptionUtils.getStackTrace(e));
+			response.setData(ExceptionUtils.getStackTrace(e));
 
 			session.sendMessage(new TextMessage(gson.toJson(response)));
 		}
