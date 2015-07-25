@@ -19,15 +19,21 @@ public class StormpathConfiguration {
 
 	private String secret;
 
+	private String application;
+
 	@Bean
 	public Application stormpathApplication() {
 		return Iterables.getOnlyElement(stormpathClient().getCurrentTenant()
-				.getApplications(Applications.where(Applications.name().eqIgnoreCase("boriss"))));
+				.getApplications(Applications.where(Applications.name().eqIgnoreCase(application))));
 	}
 
 	@Bean
 	public Client stormpathClient() {
 		return Clients.builder().setApiKey(ApiKeys.builder().setId(id).setSecret(secret).build()).build();
+	}
+
+	public void setApplication(String application) {
+		this.application = application;
 	}
 
 	public void setId(String id) {

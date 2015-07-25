@@ -21,7 +21,7 @@ public class KurentoConfiguration {
 	@Bean
 	KurentoClient kurentoClient() throws IOException {
 
-		KurentoClient client = KurentoClient.create(getWebsocketUrl(), new KurentoConnectionListener() {
+		KurentoClient client = KurentoClient.create(websocketUrl, new KurentoConnectionListener() {
 
 			@Override
 			public void disconnected() {
@@ -45,10 +45,6 @@ public class KurentoConfiguration {
 		});
 
 		return client;
-	}
-
-	public String getWebsocketUrl() {
-		return websocketUrl;
 	}
 
 	public void setWebsocketUrl(String websocketUrl) {

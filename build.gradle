@@ -47,6 +47,10 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
+bootRun {
+	jvmArgs = ['-Dspring.profiles.active=dev']
+}
+
 springBoot {
     mainClass = 'com.boriss.Application'
 }

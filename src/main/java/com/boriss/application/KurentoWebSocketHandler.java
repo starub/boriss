@@ -12,14 +12,14 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 @Component
 public class KurentoWebSocketHandler extends TextWebSocketHandler {
 
-    private Logger log = LoggerFactory.getLogger(KurentoWebSocketHandler.class);
+	private Logger log = LoggerFactory.getLogger(KurentoWebSocketHandler.class);
 
-    @Autowired
-    KurentoClient kurentoClient;
+	@Autowired
+	KurentoClient kurentoClient;
 
-    @Override
-    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        log.debug("Received message : {}", message.toString());
-    }
+	@Override
+	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+		log.debug("Received message : {}", message.toString());
+	}
 
 }
