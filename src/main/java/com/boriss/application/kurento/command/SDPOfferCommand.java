@@ -12,13 +12,9 @@ import com.boriss.application.kurento.entity.CommandType;
 import com.boriss.application.kurento.entity.Request;
 import com.boriss.application.kurento.entity.Response;
 import com.boriss.application.kurento.entity.Status;
-import com.google.gson.Gson;
 
 @Component
 public class SDPOfferCommand implements Command {
-
-	@Autowired
-	Gson gson;
 
 	@Autowired
 	KurentoClient kurentoClient;
